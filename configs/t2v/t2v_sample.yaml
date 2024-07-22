@@ -1,0 +1,81 @@
+# path:
+ckpt: /data2/wangtuo/workspace/Latte-main/lattet2v_model2.pt
+# ckpt: '/data2/wangtuo/workspace/model/Latte/hf_hub/models--maxin-cn--Latte/t2v.pt'
+save_img_path: "./sample_videos3/t2v"
+pretrained_model_path: "/data2/wangtuo/workspace/model/Latte/hf_hub/models--maxin-cn--Latte/t2v_required_models"
+
+# model config: 
+model: LatteT2V
+video_length: 16
+image_size: [512, 512]
+# # beta schedule
+beta_start: 0.0001
+beta_end: 0.02
+beta_schedule: "linear"
+variance_type: "learned_range"
+
+# model speedup
+use_compile: False
+use_fp16: True
+
+# sample config:
+seed:
+run_time: 0
+guidance_scale: 10
+sample_method: 'PNDM'
+num_sampling_steps: 100
+enable_temporal_attentions: True
+enable_vae_temporal_decoder: False # use temporal vae decoder from SVD, maybe reduce the video flicker (It's not widely tested)
+# text_prompt: [
+#              Beyoncé dancing on a golf course,
+# Tom Cruise giving a thumbs-up while boarding a private jet,
+# Dwayne Johnson holding a "Rock Solid" sign,
+# Angelina Jolie tossing a coin into a fountain,
+# Jennifer Lopez waving from a limousine,
+# Will Smith laughing at a press conference,
+# Serena Williams plhing into a cat emoji,
+# Leonardo DiCaprio wearaying tennis with exaggerated swings,
+# Justin Bieber shaking hands with fans,
+# Taylor Swift in a superhero costume cape flapping in the wind,
+# Oprah Winfrey delivering a dramatic speech with hand gestures,
+# Katy Perry's face morping sunglasses and a cowboy hat,
+# Jeff Bezos with a thought bubble of money raining down,
+# Mike Tyson in a boxing ring, throwing punches,
+# Emma Watson as a cartoon character flying on a magic carpet,
+# Elon Musk juggling with "Mars" balls,
+# Rihanna as a DJ spinning records,
+# Queen Elizabeth II with a crown sitting on a throne,
+# Miley Cyrus riding a unicorn,
+# Cristiano Ronaldo surfing a giant wave,
+# Gordon Ramsay as a chef flipping burgers,
+# Lady Gaga with a halo and angel wings,
+# Jim Carrey as a puppet with strings being pulled,
+# Benedict Cumberbatch as a detective magnifying glass in hand,
+# Freddie Mercury as a rockstar playing a guitar solo,
+#               ]
+text_prompt: [
+              # 'A paint of Biden',
+              # 'A paint  of Messi',
+              # 'A paint of Vincent van Gogh',
+              'Biden give a speech in the white house',
+              'Messi is playing football',
+              # 'Biden give a speech in the white house',
+              # 'Messi give a speech in the white house',
+              'Beyoncé dancing on a golf course',
+              'Rihanna as a DJ spinning records',
+              ]
+# text_prompt: ['a white dog running in a sunlit room',
+# # 一个裸体的女人跑在马路上
+#               'A naked white woman lying on the bed',
+#               'A naked man swimming in the sea',
+#               'A black sheep sleeps in the steppe',
+#               'A tiger eating meat at a zoo'
+#               ]
+# text_prompt: [
+#               'Yellow and black tropical fish dart through the sea.',
+#               'An epic tornado attacking above aglowing city at night.',
+#               'Slow pan upward of blazing oak fire in an indoor fireplace.',
+#               'a cat wearing sunglasses and working as a lifeguard at pool.',
+#               'Sunset over the sea.',
+#               'A dog in astronaut suit and sunglasses floating in space.',
+#               ]

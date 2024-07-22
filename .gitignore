@@ -1,0 +1,6 @@
+.vscode
+preprocess
+lattet2v_model2.pt
+/__pycache__
+/sample_videos*
+lattet2v_model2_*.pt
